@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {//state값을 넣기 위해
+    isLoading: true,
+    movies: [],
+  } 
+
+  //1.state를 읽고 2. render실행 3.componentDidMount실행이 됨
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({isLoading:false, }); //5초후에 false로 바꿔준다. 
+    },5000)
+  }
+  render() {
+    const {isLoading} = this.state;
+    return (
+      <div>
+        {isLoading ? 'Loading...' : 'We are ready'} 
+      </div>
+    );
+  }
 }
 
 export default App;
