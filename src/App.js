@@ -14,7 +14,7 @@ const App = () => {
         {/* 시작하자마자 Home이 나오게하기위해 */}
         <Route path='/' element={<Home />} /> 
         <Route path='/about' element={<About />} />
-        <Route path='/movie-detail' element={<Detail />} />
+        <Route path='/detail/:id' element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );

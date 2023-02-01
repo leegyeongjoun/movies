@@ -3,11 +3,12 @@ import propTypes from 'prop-types';
 import './Movie.scss';
 import {Link} from 'react-router-dom'
 
-const Movie = ({ year, title, summary, poster, genres}) => {
+// Home.js에서 id값을 props 해줬기 때문에 가능
+const Movie = ({id, year, title, summary, poster, genres}) => {
     return (
         <div className="movie">
             {/* state값을 가져와야함 */}
-            <Link to={{pathname:'/movie-detail', state:{year, title, summary, poster, genres}}}>
+            <Link to={`/detail/${id}`}>
                 <img src={poster} alt={title} title={title} />
                 <div className="movie_data">
                     <h3 className='movie_title'>{title}</h3>
